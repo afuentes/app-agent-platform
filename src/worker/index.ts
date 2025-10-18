@@ -13,15 +13,20 @@ app.use("*", logger());
 app.use("*", sessionMiddleware());
 
 const apiRoutes = app
-	.basePath("/api")
-	.get("/", (c) => c.text("Hello World"))
-	.route("/posts", postsRoute)
-	.route("/ai", aiRoute)
-	.route("/auth-demo", authDemoRoute)
-	.all("/auth/*", (c) => {
-		const authHandler = auth(c.env).handler;
-		return authHandler(c.req.raw);
-	});
+  .basePath("/api")
+  .get("/", (c) => c.text("Hello World"))
+  .route("/posts", postsRoute)
+  .route("/ai", aiRoute)
+  .route("/auth-demo", authDemoRoute)
+  .all("/auth/*", (c: any) => {
+    try {
+      const authHandler = auth(c.env).handler;
+      return authHandler(c.req.raw);
+    } catch (error) {
+      console.error("Auth error:", error);
+      return c.json({ error: "Auth configuration error" }, 500);
+    }
+  });
 
 export default app;
 export type ApiRoutes = typeof apiRoutes;
