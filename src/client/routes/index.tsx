@@ -96,11 +96,11 @@ function Index() {
 		return (
 			<div className="container mx-auto px-4 py-12 text-center">
 				<h1 className="text-4xl md:text-5xl font-bold tracking-tight text-foreground">
-					Cloudflare AI SAAS Stack Demo
+					The Next CRM is Agentic
 				</h1>
 				<p className="mt-4 text-lg text-muted-foreground max-w-2xl mx-auto">
-					Full Stack boilerplate with Hono, Vite, and React, all running on
-					Cloudflare Workers. Modern, fast, and scalable.
+					Autonomous agents that don't just store relationships—they build, nurture, 
+					and scale them for you.
 				</p>
 
 				<div className="mt-10">
