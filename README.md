@@ -62,7 +62,7 @@ pnpm create cloudflare@latest --template=vijaynandwani/cloudflare-ai-saas-stack
 
 ```bash
 cd <your-project-name>
-bun install
+pnpm install
 ```
 
 ### 3. Development
@@ -93,12 +93,14 @@ bun run db:migrate:remote
 ### 5. Environment Setup
 
 1. Copy the example environment file:
+
    ```bash
    cp .dev.vars.example .dev.vars
    cp .env.example .env
    ```
 
 2. Update the values in `.dev.vars` as needed for your local environment:
+
    ```bash
    BETTER_AUTH_SECRET="your-secret-key"
    BETTER_AUTH_URL="http://localhost:5173"
@@ -109,15 +111,16 @@ bun run db:migrate:remote
 3. Set up your Google OAuth Client in the Google Cloud Console with the following values:
 
 **Authorized JavaScript origins:**
+
 - http://localhost:5173
 - https://your-domain.com
 
 **Authorized redirect URIs:**
+
 - http://localhost:5173/api/auth/callback/google
 - https://your-domain.com/api/auth/callback/google
 
 Be sure that the redirect URIs and origins match exactly in your Google Console and your environment files.
-
 
 ### 6. Build & Deploy
 
@@ -128,12 +131,14 @@ bun run deploy
 ```
 
 This will:
+
 - Build the React app with Vite
 - Deploy the Hono API and static assets to Cloudflare Workers using @cloudflare/vite-plugin
 
 ---
 
 ## Project Structure
+
 ```
 src/
 ├── client/           # React frontend
@@ -168,6 +173,7 @@ src/
 > Email/password authentication has been disabled in this demo to prevent `503 cpuExceeded` errors on the Cloudflare Workers free plan. This is due to resource limitations with the `better-auth` package's password hashing operations.
 >
 > **For production use:**
+>
 > - Upgrade to a paid Workers plan to enable email/password authentication
 > - Or continue using Social Login (Google, etc.) for reliable authentication
 > - Email/password authentication can be re-enabled by setting `emailAndPassword.enabled: true` in `src/worker/auth.ts`
