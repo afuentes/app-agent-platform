@@ -1,6 +1,6 @@
 {
   "name": "app-agent-platform",
-  "description": "App Agent Platform - AI Agent who build companies",
+  "description": "App Agent Platform - AI Agents who build companies",
   "version": "1.0.0",
   "cloudflare": {
     "label": "App Agent Platform",
